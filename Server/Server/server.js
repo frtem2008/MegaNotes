@@ -17,7 +17,9 @@ class NotesServer {
     let properties = PropertiesReader("../Server/Properties/server.properties");
     this.noteService = new NoteService(
       properties.get("data.dir"),
-      properties.get("database.url")
+      properties.get("database.url"),
+      properties.get("database.name"),
+      properties.get("database.collection.name")
     );
 
     server.listen(process.env.PORT || port, () => {

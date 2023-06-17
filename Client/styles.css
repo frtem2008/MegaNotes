@@ -17,11 +17,13 @@ body {
 }
 
 .add {
+    background-color: rgb(20, 207, 231);
+    border-color: rgb(5, 35, 39);
     width: 30px;
     height: 30px;
     margin: 0;
     position: absolute;
-    top: 5%;
+    top: 3%;
     left: 95%;
     transform: translate(-50%, -50%);
     color: rgb(9, 46, 41);
@@ -29,11 +31,12 @@ body {
     text-align: center; 
 }
 .b1 {
+    background-color: rgb(20, 207, 231);
     width: 30px;
     height: 30px;
     margin: 0;
     position: absolute;
-    top: 5%;
+    top: 3%;
     left: 90%;
     transform: translate(-50%, -50%);
     color: rgb(9, 46, 41);
@@ -41,11 +44,12 @@ body {
     text-align: center; 
 }
 .b2 {
-    width: 5%;
+    background-color: rgb(20, 207, 231);
+    width: 30px;
     height: 30px;
     margin: 0;
     position: absolute;
-    top: 5%;
+    top: 3%;
     left: 85%;
     transform: translate(-50%, -50%);
     color: rgb(9, 46, 41);
@@ -53,11 +57,17 @@ body {
     text-align: center; 
 }
 
-p {
+.Text {
     font-family: Pixelicious, monospace;
     font-size: 1.5em;
     text-transform: uppercase;
     color: rgb(5, 16, 53); 
     filter: blur(0.3px);
     /* animation: 2s ease-in-out infinite alternate pulse; */
+}
+
+.NewMassage {
+    background-color: rgb(193, 210, 233);
+    border: 20px;
+    input-security: auto; 
 }

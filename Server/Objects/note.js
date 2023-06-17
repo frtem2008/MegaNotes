@@ -5,6 +5,7 @@ class Note {
     this.author = author;
     this.text = text;
     this.id = UUID.v4();
+    this._id = this.id;
     console.log("New note created: " + this);
   }
 

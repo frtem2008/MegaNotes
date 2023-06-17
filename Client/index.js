@@ -29,6 +29,11 @@ async function main() {
   };
 }
 
+function addEventListeners() {
+  const body = document.body;
+}
+
 window.addEventListener("load", (event) => {
+  addEventListeners();
   main();
 });

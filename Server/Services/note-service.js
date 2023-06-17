@@ -4,26 +4,27 @@ const Note = require("../Objects/Note");
 async function listDatabases(client) {
   databasesList = await client.db().admin().listDatabases();
 
-  console.log("Databases:");
+  console.debug("Databases:");
   databasesList.databases.forEach((db) => {
-    console.log(` - ${db.name}`);
+    console.debug(` * ${db.name}`);
   });
 }
 
 async function createNoteCollection(noteService) {
   const client = noteService.dbClient;
-  console.log(
+  console.debug(
     `Creating note data collection: ${noteService.dbCollectionName}...`
   );
   const createdCollection = await noteService.db.collection(
     noteService.dbCollectionName
   );
-  createdCollection.insertOne(
-    new Note("None", "Initial note to create a collection")
-  );
-  console.log(
-    `Collection for note data created: ${createdCollection.insertedId}`
-  );
+  noteService.noteCollection = createdCollection;
+  const size = await createdCollection.countDocuments();
+  console.debug(`Found collection for node data, read ${size} notes`);
+  if (size == 0) {
+    createdCollection.insertOne({ "": "" });
+    console.debug("Created empty object to enforce storage creation");
+  }
 }
 
 async function connectToDb(noteService, dbUri) {
@@ -43,19 +44,17 @@ async function connectToDb(noteService, dbUri) {
 }
 
 class NoteService {
-  constructor(dataDir, dbUri, dbName, dbCollectionName) {
+  constructor(dbUri, dbName, dbCollectionName) {
     this.dbUri = dbUri;
     this.dbName = dbName;
     this.dbCollectionName = dbCollectionName;
     connectToDb(this, this.dbUri);
 
-    this.rootDir = dataDir;
-
-    console.log("Note service created: " + this);
+    console.debug("Note service created: " + this);
   }
 
   toString() {
-    return `NoteService{"dataDir" : ${this.rootDir}, \n"dbUrl" : ${this.dbUri}}`;
+    return `NoteService{"dbUrl" : ${this.dbUri}}`;
   }
 }
 

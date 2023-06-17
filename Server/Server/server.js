@@ -3,11 +3,55 @@ const { Server } = require("socket.io");
 const PropertiesReader = require("properties-reader");
 
 const fs = require("fs");
+const util = require("util");
 
 const Handlers = require("./Handlers");
 
 const Note = require("../Objects/Note");
 const NoteService = require("../Services/Note-service");
+
+const log4js = require("log4js");
+const log = log4js.getLogger();
+
+function setupLogger(logFolderPath, logFileName, logLevel) {
+  const logFilePath = logFolderPath + logFileName;
+
+  log4js.configure({
+    appenders: {
+      file: {
+        type: "file",
+        filename: logFilePath,
+        layout: {
+          type: "pattern",
+          pattern: "[%d{yyyy/MM/dd-hh.mm.ss}] %p - %m",
+        },
+      },
+      console: {
+        type: "stdout",
+        layout: {
+          type: "pattern",
+          pattern: "%[[%d{yyyy/MM/dd-hh.mm.ss}] %p%] - %m",
+        },
+      },
+    },
+    categories: {
+      default: {
+        appenders: ["console", "file"],
+        level: logLevel,
+      },
+    },
+  });
+
+  const logger = log4js.getLogger("console");
+  console.debug = logger.debug.bind(logger);
+  console.log = logger.info.bind(logger);
+  console.warn = logger.warn.bind(logger);
+  console.error = logger.error.bind(logger);
+
+  fs.writeFile(logFilePath, "", () => {
+    console.debug("Logs cleared");
+  });
+}
 
 class NotesServer {
   constructor(server, port) {
@@ -15,11 +59,17 @@ class NotesServer {
     this.attachCallbacks();
 
     let properties = PropertiesReader("../Server/Properties/server.properties");
+
+    setupLogger(
+      properties.get("log.folder.path"),
+      properties.get("log.filename"),
+      properties.get("log.level")
+    );
+
     this.noteService = new NoteService(
-      properties.get("data.dir"),
       properties.get("database.url"),
       properties.get("database.name"),
-      properties.get("database.collection.name")
+      properties.get("database.notes.collection.name")
     );
 
     server.listen(process.env.PORT || port, () => {

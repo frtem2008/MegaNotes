@@ -10,6 +10,7 @@
       "request": "launch",
       "skipFiles": ["<node_internals>/**"],
       "type": "node",
+      "console": "integratedTerminal",
       "cwd": "${workspaceFolder}/Client"
     }
   ]

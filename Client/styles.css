@@ -23,8 +23,8 @@ body {
     height: 30px;
     margin: 0;
     position: absolute;
-    top: 3%;
-    left: 95%;
+    top: 95%;
+    left: 3%;
     transform: translate(-50%, -50%);
     color: rgb(9, 46, 41);
     /* font-family: "Trebuchet MS", Helvetica, sans-serif; */
@@ -36,8 +36,8 @@ body {
     height: 30px;
     margin: 0;
     position: absolute;
-    top: 3%;
-    left: 90%;
+    top: 95%;
+    left: 8%;
     transform: translate(-50%, -50%);
     color: rgb(9, 46, 41);
     /* font-family: "Trebuchet MS", Helvetica, sans-serif; */
@@ -45,12 +45,12 @@ body {
 }
 .b2 {
     background-color: rgb(20, 207, 231);
-    width: 30px;
-    height: 30px;
+    width: 200px;
+    height: 100px;
     margin: 0;
     position: absolute;
-    top: 3%;
-    left: 85%;
+    top: 95%;
+    left: 15%;
     transform: translate(-50%, -50%);
     color: rgb(9, 46, 41);
     /* font-family: "Trebuchet MS", Helvetica, sans-serif; */
@@ -70,4 +70,32 @@ body {
     background-color: rgb(193, 210, 233);
     border: 20px;
     input-security: auto; 
+    width: 33%;
+    /* height: 20%; */
+}
+
+.NewNote {
+    background-color: rgb(239, 242, 247);
+    border: 20px;
+}
+
+.EndNote {
+    background-color: rgb(193, 210, 233);
+    border: 2px;
+    width: 33%;
+    font-family: Pixelicious, monospace;
+    font-size: 70px;
+    text-transform: uppercase;
+    color: rgb(5, 16, 53); 
+    filter: blur(0.3px); 
+}
+
+.menu {
+    position: absolute;
+    background-color: rgb(193, 210, 233);
+    border: 50px;
+    top: 5%;
+    left: 53%;
+    width: 13%;
+    height: 30%;
 }

@@ -1,0 +1,39 @@
+html {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-color: rgb(140, 159, 223);
+}
+
+.add {
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    position: absolute;
+    top: 5%;
+    left: 95%;
+    transform: translate(-50%, -50%);
+    color: rgb(9, 46, 41);
+    /* font-family: "Trebuchet MS", Helvetica, sans-serif; */
+    text-align: center; 
+}
+
+p {
+    font-family: Pixelicious, monospace;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    color: rgb(5, 16, 53); 
+    filter: blur(0.3px);
+    /* animation: 2s ease-in-out infinite alternate pulse; */
+}

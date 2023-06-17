@@ -1,0 +1,27 @@
+{
+  "name": "http_server_1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "build-client": "./node_modules/.bin/rollup -c --watch",
+    "start-server": "cd dist && node ..Server/main.js"
+  },
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^25.0.1",
+    "@rollup/plugin-node-resolve": "^15.1.0",
+    "express": "^4.18.2",
+    "mongodb": "^5.6.0",
+    "morgan": "^1.10.0",
+    "properties-reader": "^2.2.0",
+    "socket.io": "^4.6.2",
+    "socket.io-client": "^4.6.2",
+    "uuid": "^9.0.0",
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "rollup": "^3.25.1"
+  }
+}

@@ -28,6 +28,30 @@ body {
     /* font-family: "Trebuchet MS", Helvetica, sans-serif; */
     text-align: center; 
 }
+.b1 {
+    width: 30px;
+    height: 30px;
+    margin: 0;
+    position: absolute;
+    top: 5%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    color: rgb(9, 46, 41);
+    /* font-family: "Trebuchet MS", Helvetica, sans-serif; */
+    text-align: center; 
+}
+.b2 {
+    width: 5%;
+    height: 30px;
+    margin: 0;
+    position: absolute;
+    top: 5%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    color: rgb(9, 46, 41);
+    /* font-family: "Trebuchet MS", Helvetica, sans-serif; */
+    text-align: center; 
+}
 
 p {
     font-family: Pixelicious, monospace;

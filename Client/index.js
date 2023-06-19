@@ -160,6 +160,7 @@ function Send() {
       title: document.getElementById("Title").value,
       text: document.getElementById("Text").value,
     };
+    ShowNotes("Author");
     document.getElementById("Author").value = "";
     document.getElementById("Title").value = "";
     document.getElementById("Text").value = "";

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
 <head>
-  <title>Test</title>
+  <title>Notes</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
 
@@ -10,15 +10,17 @@
   <script type="module" src="./dist/bundle.js"></script>
 
   <br />
-  <input id="NoteAuthor" placeholder="Author..." value="alice" />
+  <input id="NoteAuthor" placeholder="Author..." value="Test" />
   <button id="GetAll">Show all notes</button>
 
   <br />
-  <table class="AddANewNote" id="TableAdd">
+  <table class="AddANewNote" id="TableAdd" style="scale: 2">
     <tr>
       <td>
         <input id="Author" placeholder="Author..." />
       </td>
+    </tr>
+    <tr>
       <td>
         <input id="Title" placeholder="Title..." />
       </td>
@@ -41,12 +43,6 @@
   <br /><br /><br />
   <!-- For test... -->
   <!-- <p id="TestText">Text for test!</p> -->
-  <table id="Testtable" class="TestTable">
-    <tr>
-      <td width="50px">2</td>
-      <td width="30px">Title</td>
-      <td width="10px">Text</td>
-    </tr>
-  </table>
+  <table id="Testtable" class="TestTable"></table>
   <button id="TestButton" class="test">Test</button>
 </body>

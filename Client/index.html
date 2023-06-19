@@ -8,4 +8,45 @@
 <body>
   <input type="text" placeholder="Echo message" id="id1" />
   <script type="module" src="./dist/bundle.js"></script>
+
+  <br />
+  <input id="NoteAuthor" placeholder="Author..." value="alice" />
+  <button id="GetAll">Show all notes</button>
+
+  <br />
+  <table class="AddANewNote" id="TableAdd">
+    <tr>
+      <td>
+        <input id="Author" placeholder="Author..." />
+      </td>
+      <td>
+        <input id="Title" placeholder="Title..." />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input id="Text" placeholder="Text..." />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button id="Add">Add</button>
+      </td>
+    </tr>
+  </table>
+
+  <button id="NewNote" class="add">+</button>
+  <!-- <button id="NewNoteNot" class="addnot">-</button> -->
+
+  <br /><br /><br />
+  <!-- For test... -->
+  <!-- <p id="TestText">Text for test!</p> -->
+  <table id="Testtable" class="TestTable">
+    <tr>
+      <td width="50px">2</td>
+      <td width="30px">Title</td>
+      <td width="10px">Text</td>
+    </tr>
+  </table>
+  <button id="TestButton" class="test">Test</button>
 </body>

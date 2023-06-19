@@ -7,7 +7,7 @@
   "license": "ISC",
   "scripts": {
     "build-client": "./node_modules/.bin/rollup -c --watch",
-    "start-server": "cd dist && node ..Server/main.js"
+    "start-server": "cd dist && node ../Server/main.js"
   },
   "dependencies": {
     "@rollup/plugin-commonjs": "^25.0.1",

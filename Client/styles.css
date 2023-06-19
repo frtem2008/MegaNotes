@@ -30,23 +30,25 @@ body {
     /* font-family: "Trebuchet MS", Helvetica, sans-serif; */
     text-align: center; 
 }
-.b1 {
+.addnot {
     background-color: rgb(20, 207, 231);
+    border-color: rgb(5, 35, 39);
     width: 30px;
     height: 30px;
     margin: 0;
     position: absolute;
     top: 95%;
-    left: 8%;
+    left: 20em;
     transform: translate(-50%, -50%);
     color: rgb(9, 46, 41);
     /* font-family: "Trebuchet MS", Helvetica, sans-serif; */
     text-align: center; 
 }
-.b2 {
+
+.test {
     background-color: rgb(20, 207, 231);
-    width: 200px;
-    height: 100px;
+    width: 60px;
+    height: 20px;
     margin: 0;
     position: absolute;
     top: 95%;
@@ -74,9 +76,12 @@ body {
     /* height: 20%; */
 }
 
-.NewNote {
+.AddANewNote {
+    position: absolute;
     background-color: rgb(239, 242, 247);
-    border: 20px;
+    border: 50px;
+    top: 5%;
+    left: 50%;
 }
 
 .EndNote {
@@ -99,3 +104,13 @@ body {
     width: 13%;
     height: 30%;
 }
+
+/* .TestTable {
+    background-color: rgb(141, 203, 228);
+    border: solid;
+    top: 10%;
+    left: 5%;
+
+} */
+
+.TestTable tr, td{ border-collapse: collapse; padding: 3px; border: 1px solid #777; background-color: lightblue; }

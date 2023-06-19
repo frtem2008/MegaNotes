@@ -9,6 +9,21 @@ class ServerHandlers {
     client.emit("EchoToClient", echoMsg + "!!!");
   }
 
+  static addNotehandler(server, client, note) {
+    console.log("Read add new note message: " + note);
+    server.noteService.saveNote(note);
+    client.emit("NoteAddResult", "Note saved");
+  }
+
+  static getAllNotesHandler(server, client, author) {
+    console.log("Read get all notes message for: " + author);
+    server.noteService.getAllNotes(author);
+    serverEmitter.once("All notes of " + author + " ready!", (res) => {
+      console.log("Sending all notes!");
+      client.emit("AllNotes", res);
+    });
+  }
+
   static disconnectHandler(server, client) {
     console.log("User: " + client.id + " disconnected");
   }

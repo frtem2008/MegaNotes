@@ -11,7 +11,8 @@
       "skipFiles": ["<node_internals>/**"],
       "type": "node",
       "console": "integratedTerminal",
-      "cwd": "${workspaceFolder}/Client"
+      "cwd": "${workspaceFolder}/Client",
+      "runtimeArgs": ["--preserve-symlinks"]
     }
   ]
 }

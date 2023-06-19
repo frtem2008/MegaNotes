@@ -44,7 +44,7 @@ function setupLogger(logFolderPath, logFileName, logLevel) {
 
   const logger = log4js.getLogger("console");
   console.debug = logger.debug.bind(logger);
-  console.log = logger.info.bind(logger);
+  console.log = console.info = logger.info.bind(logger);
   console.warn = logger.warn.bind(logger);
   console.error = logger.error.bind(logger);
 
@@ -87,6 +87,14 @@ class NotesServer {
 
       socket.on("EchoToServer", (echoMsg) => {
         Handlers.echoHandler(this, socket, echoMsg);
+      });
+
+      socket.on("AddNewNote", (note) => {
+        Handlers.addNotehandler(this, socket, note);
+      });
+
+      socket.on("GetAllNotes", (author) => {
+        Handlers.getAllNotesHandler(this, socket, author);
       });
     });
   }

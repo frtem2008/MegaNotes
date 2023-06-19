@@ -18,7 +18,6 @@ async function main() {
     });
 
     socket.on("AllNotes", function (noteList) {
-      // TODO:
       // show all notes from note list
       console.log("Read notes from: " + noteList[0].author); //);
       // console.log(noteList);
@@ -68,17 +67,18 @@ async function main() {
         i++;
       }
 
+      // TODO:
       ////New
-      // var Newtable = document.createElement("table");
-      // tr = Newtable.insertRow(0);
-      // td0 = tr.insertCell(0);
-      // child0 = document.createElement("th");
-      // child0.innerHTML = `Author:`;
-      // td0.appendChild(child0);
-      // td01 = tr.insertCell(1);
-      // child01 = document.createElement("p");
-      // child01.innerHTML = `${noteList[0].author}`;
-      // td01.appendChild(child01);
+      var Newtable = document.createElement("table");
+      tr = Newtable.insertRow(0);
+      td0 = tr.insertCell(0);
+      child0 = document.createElement("p");
+      child0.innerHTML = `Author:`;
+      td0.appendChild(child0);
+      td01 = tr.insertCell(1);
+      child01 = document.createElement("p");
+      child01.innerHTML = `${noteList[0].author}`;
+      td01.appendChild(child01);
     });
   });
 

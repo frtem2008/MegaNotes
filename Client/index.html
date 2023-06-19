@@ -10,11 +10,21 @@
   <script type="module" src="./dist/bundle.js"></script>
 
   <br />
-  <input id="NoteAuthor" placeholder="Author..." value="Test" />
-  <button id="GetAll">Show all notes</button>
+  <table class="AddANewNote1" id="TableShow" style="scale: 2">
+    <tr>
+      <td>
+        <input id="NoteAuthor" placeholder="Author..." value="Test" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button id="GetAll">Show all notes</button>
+      </td>
+    </tr>
+  </table>
 
   <br />
-  <table class="AddANewNote" id="TableAdd" style="scale: 2">
+  <table class="AddANewNote" id="TableAdd" style="scale: 2; display: none">
     <tr>
       <td>
         <input id="Author" placeholder="Author..." />

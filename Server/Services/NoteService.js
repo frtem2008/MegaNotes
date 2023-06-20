@@ -1,6 +1,6 @@
 const Note = require("../Objects/Note");
 const EventEmitter = require("./EventEmitter");
-const { connectToDb, addNewNote, getAllElementsInCollection } = require("./Db");
+const { connectToDb, addNewNote, getAllElementsInCollection } = require("./DataBase");
 
 class NoteService {
   constructor(dbUri, dbName, dbCollectionName) {

@@ -1,17 +1,13 @@
-const UUID = require("uuid");
 const { Server } = require("socket.io");
 const PropertiesReader = require("properties-reader");
 
 const fs = require("fs");
-const util = require("util");
 
 const Handlers = require("./Handlers");
 
-const Note = require("../Objects/Note");
-const NoteService = require("../Services/Note-service");
+const NoteService = require("../Services/NoteService");
 
 const log4js = require("log4js");
-const log = log4js.getLogger();
 
 function setupLogger(logFolderPath, logFileName, logLevel) {
   const logFilePath = logFolderPath + logFileName;
@@ -90,7 +86,7 @@ class NotesServer {
       });
 
       socket.on("AddNewNote", (note) => {
-        Handlers.addNotehandler(this, socket, note);
+        Handlers.addNoteHandler(this, socket, note);
       });
 
       socket.on("GetAllNotes", (author) => {

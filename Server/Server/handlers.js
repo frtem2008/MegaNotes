@@ -9,7 +9,7 @@ class ServerHandlers {
     client.emit("EchoToClient", echoMsg + "!!!");
   }
 
-  static addNotehandler(server, client, note) {
+  static addNoteHandler(server, client, note) {
     console.log("Read add new note message: " + note);
     server.noteService.saveNote(note);
     client.emit("NoteAddResult", "Note saved");

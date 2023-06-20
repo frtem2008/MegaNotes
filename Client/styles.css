@@ -16,7 +16,7 @@ body {
   background-color: rgb(140, 159, 223);
 }
 
-.add {
+.NewNoteButton {
   background-color: rgb(20, 207, 231);
   border-color: rgb(5, 35, 39);
   width: 30px;
@@ -45,7 +45,7 @@ body {
   text-align: center;
 }
 
-.test {
+.TestButton {
   background-color: rgb(20, 207, 231);
   width: 60px;
   height: 20px;
@@ -76,14 +76,14 @@ body {
   /* height: 20%; */
 }
 
-.AddANewNote {
+.NewNoteInputTable {
   position: absolute;
   background-color: rgb(239, 242, 247);
   border: 50px; 
   top: 9%;
   left: 50%;
 }
-.AddANewNote1 {
+.ShowAllNotesTable {
     position: absolute;
     background-color: rgb(239, 242, 247);
     border: 10px; 

@@ -1,7 +1,7 @@
 const { MongoClient, ObjectId } = require("mongodb");
 
 async function listDatabases(client) {
-  databasesList = await client.db().admin().listDatabases();
+  let databasesList = await client.db().admin().listDatabases();
 
   console.debug("Databases:");
   databasesList.databases.forEach((db) => {
@@ -20,7 +20,7 @@ async function createNoteCollection(noteService) {
   noteService.noteCollection = createdCollection;
   const size = await createdCollection.countDocuments();
   console.info(`Found collection for node data, read ${size} notes`);
-  if (size == 0) {
+  if (size === 0) {
     createdCollection.insertOne({ "": "" });
     console.info("Created empty object to enforce storage creation");
   }

@@ -111,7 +111,7 @@ async function main() {
     setTimeout(() => {
       if (document.getElementById("ShowNoteAuthorInput").value === "")
         document.getElementById("ShowNoteAuthorInput").value = "Test";
-    }, 5000);
+    }, 3000);
   });
 
   socket.on("disconnect", () => {
@@ -139,6 +139,29 @@ async function main() {
     }
   };
 
+  document.getElementById("NoteTitleInput").onkeyup = (ev) => {
+    if (ev.code === "Enter") {
+      document.getElementById("NoteTextInput").focus();
+    }
+  };
+
+  document.getElementById("TestInputTitle").onkeyup = (ev) => {
+    if (ev.code === "Enter") {
+      document.getElementById("TestInputMessage1").focus();
+    }
+  };
+
+  document.getElementById("TestInputMessage1").onkeyup = (ev) => {
+    if (ev.code === "Enter") {
+      document.getElementById("TestInputMessage2").focus();
+    }
+  };
+
+  document.getElementById("TestInputMessage2").onkeyup = (ev) => {
+    if (ev.code === "Enter") {
+      document.getElementById("SendTestInputButton").focus();
+    }
+  };
   document.getElementById("NoteTextInput").onkeyup = (ev) => {
     if (ev.code === "Enter") {
       // const value = document.getElementById("NoteTextInput").value;
@@ -218,7 +241,7 @@ function ShowNotes(ID) {
 }
 
 function ShowAuthors() {
-  // document.getElementById("AllAuthorsTable").style.display = "block";
+  document.getElementById("AllAuthorsTable").style.display = "block";
   // const author = document.getElementById(ID).value;
   socket.emit("GetAllAuthors");
 }

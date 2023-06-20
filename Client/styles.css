@@ -19,8 +19,8 @@ body {
 .NewNoteButton {
   background-color: rgb(20, 207, 231);
   border-color: rgb(5, 35, 39);
-  width: 30px;
-  height: 30px;
+  /* width: 30px;
+  height: 30px; */
   margin: 0;
   /* position: absolute; */
   /* top: 95%;
@@ -33,8 +33,8 @@ body {
 .addnot {
   background-color: rgb(20, 207, 231);
   border-color: rgb(5, 35, 39);
-  width: 30px;
-  height: 30px;
+  /* width: 30px;
+  height: 30px; */
   margin: 0;
   position: absolute;
   top: 95%;
@@ -61,10 +61,12 @@ body {
 
 .Text {
   font-family: Pixelicious, monospace;
-  font-size: 1.5em;
+  font-size: 1em;
   text-transform: uppercase;
   color: rgb(5, 16, 53);
   filter: blur(0.3px);
+  text-align: center;
+  background-color: #3aa6b9;
   /* animation: 2s ease-in-out infinite alternate pulse; */
 }
 
@@ -192,14 +194,14 @@ body {
   border-collapse: collapse;
   padding: 3px;
   border: 1px solid #777;
-  background-color: rgb(129, 167, 230);
+  /* background-color: rgb(129, 167, 230); */
 }
 
 .Menu th {
   border-collapse: collapse;
   padding: 3px;
   border: 1px solid #252323;
-  background-color: rgb(49, 196, 183);
+  /* background-color: rgb(49, 196, 183); */
 }
 
 

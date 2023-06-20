@@ -12,13 +12,21 @@
   <table>
     <tr>
       <td>
-
-        <label for="EchoInput"></label
-          ><input type="text" placeholder="Echo message" id="EchoInput" />
-
+        <h1 class="Text">Echo:</h1>
       </td>
     </tr>
-     <tr>
+    <tr>
+      <td>
+        <label for="EchoInput"></label
+          ><input type="text" placeholder="Echo message" id="EchoInput" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <h1 class="Text">Show notes:</h1>
+      </td>
+    </tr>
+    <tr>
       <td>
 
         <!-- Show all notes table (author + show + hide) -->
@@ -56,7 +64,11 @@
     </tr>
     <tr>
       <td>
-
+        <h1 class="Text">Search:</h1>
+      </td>
+    </tr>
+    <tr>
+      <td>
         <!-- Test table for AN2 (title + text + button) -->
         <table class="TestTable" id="TestTable">
           <tr>
@@ -76,7 +88,7 @@
           </tr>
           <tr>
             <td>
-              <button id="SendTestInputButton">Send test message</button>
+              <button id="SendTestInputButton">Send</button>
             </td>
           </tr>
         </table>
@@ -88,16 +100,20 @@
   <!-- Menu -->
   <table class="Menu">
     <tr>
+      <td colspan="3" >
+        <h1 class="Text">Menu:</h1>
+      </td>
+    </tr>
+    <tr>
       <td>
         <!-- Add a new note button -->
-        <button id="NewNoteButton" class="NewNoteButton">+</button>
+        <button id="NewNoteButton" class="NewNoteButton">Add a new Note</button>
         <!-- <button id="NewNoteNot" class="addnot">-</button> -->
       </td>
       <td>
         <button id="TestButton" class="TestButton">Test</button>
       </td>
       <td>
-        <!-- For test... -->
         <p id="TestText">Text for test!</p>
       </td>
     </tr>
@@ -154,4 +170,5 @@
       </td>
     </tr>
   </table>
+
 </body>

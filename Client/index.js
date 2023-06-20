@@ -73,16 +73,16 @@ async function main() {
 
       // TODO:
       ////New
-      const NewTable = document.createElement("table");
-      tr = NewTable.insertRow(0);
-      td0 = tr.insertCell(0);
-      child0 = document.createElement("p");
-      child0.innerHTML = `Author:`;
-      td0.appendChild(child0);
-      td01 = tr.insertCell(1);
-      child01 = document.createElement("p");
-      child01.innerHTML = `${noteList[0].author}`;
-      td01.appendChild(child01);
+      // const NewTable = document.createElement("table");
+      // tr = NewTable.insertRow(0);
+      // td0 = tr.insertCell(0);
+      // child0 = document.createElement("p");
+      // child0.innerHTML = `Author:`;
+      // td0.appendChild(child0);
+      // td01 = tr.insertCell(1);
+      // child01 = document.createElement("p");
+      // child01.innerHTML = `${noteList[0].author}`;
+      // td01.appendChild(child01);
     });
 
     socket.on("AllAuthors", (authors) => {
@@ -91,6 +91,7 @@ async function main() {
         console.log(a);
       }
       let table = document.getElementById("AllAuthorsTable");
+      table.style.display = "block";
       let tr = table.insertRow(0);
       let td0 = tr.insertCell(0);
       let child0 = document.createElement("th");
@@ -217,10 +218,11 @@ function ShowNotes(ID) {
 }
 
 function ShowAuthors() {
-  document.getElementById("AllAuthorsTable").style.display = "block";
+  // document.getElementById("AllAuthorsTable").style.display = "block";
   // const author = document.getElementById(ID).value;
-  socket.emit("AllAuthors");
+  socket.emit("GetAllAuthors");
 }
+
 const handlerAll = (ID) => {
   const table = document.getElementById(ID);
   table.innerHTML = "";
@@ -241,28 +243,29 @@ function addEventListeners() {
     Send();
   });
 
-  // const ShowAllNotes = document.getElementById("ShowAllNotesButton");
-  // ShowAllNotes.addEventListener("click", (event) => {
-  //   handlerAll("AllNotesTable");
-  //   ShowNotes("ShowNoteAuthorInput");
-  //   // handlerAll("AllNotesTable");
-  // });
+  const ShowAllNotes = document.getElementById("ShowAllNotesButton");
+  ShowAllNotes.addEventListener("click", (event) => {
+    handlerAll("AllNotesTable");
+    ShowNotes("ShowNoteAuthorInput");
+    // handlerAll("AllNotesTable");
+  });
 
-  // const HideAllNotes = document.getElementById("HideAllNotesButton");
-  // HideAllNotes.addEventListener("click", (event) => {
-  //   handlerAll("AllNotesTable");
-  // });
-
-  const ShowAllAuthors = document.getElementById("ShowAllNotesButton");
+  const HideAllNotes = document.getElementById("HideAllNotesButton");
+  HideAllNotes.addEventListener("click", (event) => {
+    handlerAll("AllNotesTable");
+  });
+  /////////////////////+=================================================================================
+  const ShowAllAuthors = document.getElementById("ShowAllAuthorsButton");
   ShowAllAuthors.addEventListener("click", (event) => {
     handlerAll("AllAuthorsTable");
     ShowAuthors();
     // handlerAll("AllNotesTable");
   });
 
-  const HideAllAuthors = document.getElementById("HideAllNotesButton");
+  const HideAllAuthors = document.getElementById("HideAllAuthorsButton");
   HideAllAuthors.addEventListener("click", (event) => {
-    handlerAll("AllAuthorsTable");
+    document.getElementById("AllAuthorsTable").style.display = "none";
+    // handlerAll();
   });
 
   document

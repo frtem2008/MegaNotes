@@ -6,74 +6,129 @@
 </head>
 
 <body>
-  <label for="EchoInput"></label
-  ><input type="text" placeholder="Echo message" id="EchoInput" />
   <script type="module" src="./dist/bundle.js"></script>
 
-  <br />
-  <!-- Show all notes table (author + show + hide) -->
-  <table class="ShowAllNotesTable" id="ShowAllNotesTable">
-    <!-- style="scale: 2"> -->
-    <!-- <tr>
-      <td>
-        <p class="Text">Show All Notes of this author</p>
-      </td>
-    </tr> -->
+<!-- My -->
+  <table>
     <tr>
       <td>
-        <label for="ShowNoteAuthorInput"></label
-        ><input id="ShowNoteAuthorInput" placeholder="Author..." />
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <button id="ShowAllNotesButton">Show all notes</button>
-      </td>
-      <td>
-        <button id="HideAllNotesButton">Hide all notes</button>
-      </td>
-    </tr>
-  </tr>
-  <tr>
-    <td>
-      <button id="ShowAllAuthersButton">Show all authors</button>
-    </td>
-    <td>
-      <button id="HideAllAuthersButton">Hide all authors</button>
-    </td>
-  </tr>
-  </table>
 
-  <br />
-  <!-- Test table for AN2 (title + text + button) -->
-  <table class="TestTable" id="TestTable">
-    <tr>
-      <td>
-        <input id="TestInputTitle" placeholder="Message title" />
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <input id="TestInputMessage1" placeholder="Message text" />
+        <label for="EchoInput"></label
+          ><input type="text" placeholder="Echo message" id="EchoInput" />
+
       </td>
     </tr>
      <tr>
       <td>
-        <input id="TestInputMessage2" placeholder="Message text" />
-      </td>
+
+        <!-- Show all notes table (author + show + hide) -->
+        <table class="ShowAllNotesTable" id="ShowAllNotesTable">
+          <!-- style="scale: 2"> -->
+          <!-- <tr>
+            <td>
+              <p class="Text">Show All Notes of this author</p>
+            </td>
+          </tr> -->
+          <tr>
+            <td>
+              <label for="ShowNoteAuthorInput"></label
+              ><input id="ShowNoteAuthorInput" placeholder="Author..." />
+            </td>
+            <td>
+              <button id="ShowAllAuthorsButton">Show all authors</button>
+            </td>
+            <td>
+              <button id="HideAllAuthorsButton">Hide all authors</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button id="ShowAllNotesButton">Show all notes</button>
+            </td>
+            <td>
+              <button id="HideAllNotesButton">Hide all notes</button>
+            </td>
+          </tr>
+        </tr>
+        </table>
+
+      </td>      
     </tr>
     <tr>
       <td>
-        <button id="SendTestInputButton">Send test message</button>
+
+        <!-- Test table for AN2 (title + text + button) -->
+        <table class="TestTable" id="TestTable">
+          <tr>
+            <td>
+              <input id="TestInputTitle" placeholder="Command" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input id="TestInputMessage1" placeholder="Author for search..." />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input id="TestInputMessage2" placeholder="Title/Text  for search..." />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button id="SendTestInputButton">Send test message</button>
+            </td>
+          </tr>
+        </table>
+
       </td>
     </tr>
   </table>
 
+  <!-- Menu -->
+  <table class="Menu">
+    <tr>
+      <td>
+        <!-- Add a new note button -->
+        <button id="NewNoteButton" class="NewNoteButton">+</button>
+        <!-- <button id="NewNoteNot" class="addnot">-</button> -->
+      </td>
+      <td>
+        <button id="TestButton" class="TestButton">Test</button>
+      </td>
+      <td>
+        <!-- For test... -->
+        <p id="TestText">Text for test!</p>
+      </td>
+    </tr>
+  </table>
+
+
+  <!-- Settings and output -->
+  <!-- Add new notes table (author + title + text + button) -->
+  <table class="SaO">
+    <tr>
+      <td>
+        <!-- Show all notes table (author + button) -->
+        <table id="AllNotesTable" class="AllNotesTable" style="display: none"></table>
+      </td>
+      <td>
+        <!-- Show all authors table (button) -->
+        <table
+          id="AllAuthorsTable"
+          class="AllAuthorsTable"
+          style="display: none"
+        ></table>
+      </td>
+    </tr>
+  </table>
+
+  <!-- InpuT -->
   <!-- Add new notes table (author + title + text + button) -->
   <table
-    class="NewNoteInputTable"
-    id="NewNoteInputTable"
-    style="scale: 2; display: block"
+  class="NewNoteInputTable"
+  id="NewNoteInputTable"
+  style="scale: 2; display: none"
   >
     <tr>
       <td>
@@ -99,21 +154,4 @@
       </td>
     </tr>
   </table>
-
-  <!-- Show all notes table (author + button) -->
-  <table id="AllNotesTable" class="AllNotesTable" style="display: none"></table>
-  <table
-    id="AllAuthorsTable"
-    class="AllAuthorsTable"
-    style="display: none"
-  ></table>
-
-  <!-- Add another button -->
-  <button id="NewNoteButton" class="NewNoteButton">+</button>
-  <!-- <button id="NewNoteNot" class="addnot">-</button> -->
-
-  <br /><br /><br />
-  <!-- For test... -->
-  <p id="TestText">Text for test!</p>
-  <button id="TestButton" class="TestButton">Test</button>
 </body>

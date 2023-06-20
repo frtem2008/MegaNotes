@@ -22,10 +22,10 @@ body {
   width: 30px;
   height: 30px;
   margin: 0;
-  position: absolute;
-  top: 95%;
-  left: 3%;
-  transform: translate(-50%, -50%);
+  /* position: absolute; */
+  /* top: 95%;
+  left: 3%; */
+  /* transform: translate(-50%, -50%); */
   color: rgb(9, 46, 41);
   /* font-family: "Trebuchet MS", Helvetica, sans-serif; */
   text-align: center;
@@ -50,10 +50,10 @@ body {
   width: 60px;
   height: 20px;
   margin: 0;
-  position: absolute;
+  /* position: absolute; */
   top: 95%;
   left: 15%;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
   color: rgb(9, 46, 41);
   /* font-family: "Trebuchet MS", Helvetica, sans-serif; */
   text-align: center;
@@ -114,10 +114,11 @@ body {
 }
 
 .AllNotesTable {
-  position: absolute;
+  /* position: absolute; */
   background-color: rgb(239, 242, 247);
   border: 1px solid #777;
-  top: 15%;
+  /* top: 15%; */
+  /* left:80% */
 }
 
 .AllNotesTable td {
@@ -128,6 +129,28 @@ body {
 }
 
 .AllNotesTable th {
+  border-collapse: collapse;
+  padding: 3px;
+  border: 1px solid #252323;
+  background-color: rgb(240, 240, 240);
+}
+
+.AllAuthorsTable {
+  /* position: absolute; */
+  background-color: rgb(239, 242, 247);
+  border: 1px solid #777;
+  /* top: 15%; */
+  /* left:70% */
+}
+
+.AllAuthorsTable td {
+  border-collapse: collapse;
+  padding: 3px;
+  border: 1px solid #777;
+  background-color: rgb(212, 220, 233);
+}
+
+.AllAuthorsTable th {
   border-collapse: collapse;
   padding: 3px;
   border: 1px solid #252323;
@@ -151,5 +174,55 @@ body {
   position: absolute;
   background-color: rgb(239, 242, 247);
   border: 1px solid #777;
-  top: 65%;
+  /* top: 65%; */
+}
+
+.Menu {
+  position: absolute;
+  /* background-color: rgb(8, 201, 143);
+  border: 1px solid #777; */
+  left: 82%;
+  top: 2%;
+  bottom: 0%;
+}
+
+.Menu tbody {
+  width: 10%;
+  height: 10%;
+  border-collapse: collapse;
+  padding: 3px;
+  border: 1px solid #777;
+  background-color: rgb(129, 167, 230);
+}
+
+.Menu th {
+  border-collapse: collapse;
+  padding: 3px;
+  border: 1px solid #252323;
+  background-color: rgb(49, 196, 183);
+}
+
+
+.SaO {
+  align-self: right;
+  vertical-align: top;
+  position: absolute;
+  /* background-color: rgb(8, 201, 143); */
+  /* border: 1px solid #777; */
+  /* height: 80%;
+  width: 20%; */
+  left: 82%;
+  right: 0%;
+}
+.SaO tbody {
+  align-self: right;
+  vertical-align: top;
+
+}
+.SaO thead {
+  height: 80%;
+  width: 20%;
+  align-self: right;
+  vertical-align: top;
+
 }

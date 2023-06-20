@@ -92,6 +92,20 @@ class NotesServer {
       socket.on("GetAllNotes", (author) => {
         Handlers.getAllNotesHandler(this, socket, author);
       });
+
+      socket.on("GetAllAuthors", () => {
+        Handlers.getAllAuthorsHandler(this, socket);
+      });
+
+      socket.on("GetAllNotesFromAuthorWithText", (author, field, text) => {
+        Handlers.getAllNotesFromAuthorWithTextHandler(
+          this,
+          socket,
+          author,
+          field,
+          text
+        );
+      });
     });
   }
 }

@@ -39,8 +39,29 @@ async function addNewNote(noteService, note) {
 async function getAllElementsInCollection(noteService, collectionName) {
   const client = noteService.dbClient;
   const noteCollection = await noteService.db.collection(collectionName);
-  console.log(await noteCollection.countDocuments());
-  const notes = noteCollection.find({});
+  console.log(
+    `Found ${await noteCollection.countDocuments()} notes in ${collectionName}`
+  );
+  const notes = await noteCollection.find({});
+  const res = [];
+  while (await notes.hasNext()) {
+    res.push(await notes.next());
+  }
+  return res;
+}
+
+async function getAllCollectionNames(noteService) {
+  const noteCollectionsArr = await noteService.db.listCollections().toArray();
+  console.log(`Found ${noteCollectionsArr.length} collections`);
+  return await noteCollectionsArr;
+}
+
+async function getAllNotesWithField(noteService, author, field, fieldVal) {
+  const noteCollection = await noteService.db.collection(author + " notes");
+  const query = {};
+  query[field] = { $regex: fieldVal };
+  console.log(query);
+  const notes = noteCollection.find(query);
   const res = [];
   while (await notes.hasNext()) {
     res.push(await notes.next());
@@ -69,4 +90,6 @@ module.exports = {
   createNoteCollection,
   addNewNote,
   getAllElementsInCollection,
+  getAllCollectionNames,
+  getAllNotesWithField,
 };

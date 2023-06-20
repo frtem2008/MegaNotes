@@ -1,58 +1,119 @@
 <!DOCTYPE html>
 
 <head>
-    <title>Notes</title>
-    <link rel="stylesheet" href="./styles.css"/>
+  <title>Notes</title>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 
 <body>
-<label for="EchoInput"></label><input type="text" placeholder="Echo message" id="EchoInput"/>
-<script type="module" src="./dist/bundle.js"></script>
+  <label for="EchoInput"></label
+  ><input type="text" placeholder="Echo message" id="EchoInput" />
+  <script type="module" src="./dist/bundle.js"></script>
 
-<br/>
-<table class="ShowAllNotesTable" id="ShowAllNotesTable" style="scale: 2">
+  <br />
+  <!-- Show all notes table (author + show + hide) -->
+  <table class="ShowAllNotesTable" id="ShowAllNotesTable">
+    <!-- style="scale: 2"> -->
+    <!-- <tr>
+      <td>
+        <p class="Text">Show All Notes of this author</p>
+      </td>
+    </tr> -->
     <tr>
-        <td>
-            <label for="ShowNoteAuthorInput"></label><input id="ShowNoteAuthorInput" placeholder="Author..." value="Test"/>
-        </td>
+      <td>
+        <label for="ShowNoteAuthorInput"></label
+        ><input id="ShowNoteAuthorInput" placeholder="Author..." />
+      </td>
     </tr>
     <tr>
-        <td>
-            <button id="ShowAllNotesButton">Show all notes</button>
-        </td>
+      <td>
+        <button id="ShowAllNotesButton">Show all notes</button>
+      </td>
+      <td>
+        <button id="HideAllNotesButton">Hide all notes</button>
+      </td>
     </tr>
-</table>
+  </tr>
+  <tr>
+    <td>
+      <button id="ShowAllAuthersButton">Show all authors</button>
+    </td>
+    <td>
+      <button id="HideAllAuthersButton">Hide all authors</button>
+    </td>
+  </tr>
+  </table>
 
-<br/>
-<table class="NewNoteInputTable" id="NewNoteInputTable" style="scale: 2; display: none">
+  <br />
+  <!-- Test table for AN2 (title + text + button) -->
+  <table class="TestTable" id="TestTable">
     <tr>
-        <td>
-            <label for="NoteAuthorInput"></label><input id="NoteAuthorInput" placeholder="Author..."/>
-        </td>
+      <td>
+        <input id="TestInputTitle" placeholder="Message title" />
+      </td>
     </tr>
     <tr>
-        <td>
-            <label for="NoteTitleInput"></label><input id="NoteTitleInput" placeholder="Title..."/>
-        </td>
+      <td>
+        <input id="TestInputMessage1" placeholder="Message text" />
+      </td>
+    </tr>
+     <tr>
+      <td>
+        <input id="TestInputMessage2" placeholder="Message text" />
+      </td>
     </tr>
     <tr>
-        <td>
-            <label for="NoteTextInput"></label><input id="NoteTextInput" placeholder="Text..."/>
-        </td>
+      <td>
+        <button id="SendTestInputButton">Send test message</button>
+      </td>
     </tr>
-    <tr>
-        <td>
-            <button id="SendNoteData">Add</button>
-        </td>
-    </tr>
-</table>
+  </table>
 
-<button id="NewNoteButton" class="NewNoteButton">+</button>
-<!-- <button id="NewNoteNot" class="addnot">-</button> -->
+  <!-- Add new notes table (author + title + text + button) -->
+  <table
+    class="NewNoteInputTable"
+    id="NewNoteInputTable"
+    style="scale: 2; display: block"
+  >
+    <tr>
+      <td>
+        <label for="NoteAuthorInput"></label
+        ><input id="NoteAuthorInput" placeholder="Author..." />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="NoteTitleInput"></label
+        ><input id="NoteTitleInput" placeholder="Title..." />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <label for="NoteTextInput"></label
+        ><input id="NoteTextInput" placeholder="Text..." />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button id="SendNoteData">Add</button>
+      </td>
+    </tr>
+  </table>
 
-<br/><br/><br/>
-<!-- For test... -->
-<!-- <p id="TestText">Text for test!</p> -->
-<table id="TestTable" class="TestTable"></table>
-<button id="TestButton" class="TestButton">Test</button>
+  <!-- Show all notes table (author + button) -->
+  <table id="AllNotesTable" class="AllNotesTable" style="display: none"></table>
+  <table
+    id="AllAuthorsTable"
+    class="AllAuthorsTable"
+    style="display: none"
+  ></table>
+
+  <!-- Add another button -->
+  <button id="NewNoteButton" class="NewNoteButton">+</button>
+  <!-- <button id="NewNoteNot" class="addnot">-</button> -->
+
+  <br /><br /><br />
+  <!-- For test... -->
+  <p id="TestText">Text for test!</p>
+  <button id="TestButton" class="TestButton">Test</button>
 </body>

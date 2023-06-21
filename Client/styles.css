@@ -30,6 +30,7 @@ body {
   /* font-family: "Trebuchet MS", Helvetica, sans-serif; */
   text-align: center;
 }
+
 .addnot {
   background-color: rgb(20, 207, 231);
   border-color: rgb(5, 35, 39);
@@ -83,7 +84,7 @@ body {
   background-color: rgb(239, 242, 247);
   border: 50px;
   top: 9%;
-  left: 50%;
+  left: 43%;
 }
 
 .ShowAllNotesTable {
@@ -162,29 +163,51 @@ body {
 .Error {
   position: absolute;
   font-family: Pixelicious, monospace;
-  font-size: 1.5em;
+  /* font-size: 1.5em; */
   text-transform: uppercase;
   color: rgb(5, 16, 53);
-  background-color: rgb(192, 66, 66);
+  /* background-color: rgb(192, 66, 66); */
   filter: blur(0.3px);
   border: 50px;
-  top: -2%;
-  left: 50%;
+  /* top: -2%;
+  left: 50%; */
+}
+
+.Info {
+  /* position: absolute; */
+  font-family: Pixelicious, monospace;
+  /* font-size: 1.5em; */
+  text-transform: uppercase;
+  color: rgb(60, 13, 92);
+  /* background-color: rgba(20, 72, 214, 0.4); */
+  filter: blur(0.3px);
+  text-align: center;
+  border: 50px;
 }
 
 .TestTable {
   position: absolute;
   background-color: rgb(239, 242, 247);
   border: 1px solid #777;
-  /* top: 65%; */
+  border-spacing: 1px 2px;
+    /* top: 65%; */
+}
+
+.Left {
+  position: fixed;
+  /* background-color: rgb(8, 201, 143);
+  border: 1px solid #777; */
+  left: 0%;
+  top: 1%;
+  bottom: 0%;
 }
 
 .Menu {
-  position: absolute;
+  position: fixed;
   /* background-color: rgb(8, 201, 143);
   border: 1px solid #777; */
-  left: 82%;
-  top: 2%;
+  right: 0%;
+  top: 1%;
   bottom: 0%;
 }
 
@@ -204,7 +227,6 @@ body {
   /* background-color: rgb(49, 196, 183); */
 }
 
-
 .SaO {
   align-self: right;
   vertical-align: top;
@@ -213,14 +235,16 @@ body {
   /* border: 1px solid #777; */
   /* height: 80%;
   width: 20%; */
+  top: 15%;
   left: 82%;
   right: 0%;
 }
+
 .SaO tbody {
   align-self: right;
   vertical-align: top;
-
 }
+
 .SaO thead {
   height: 80%;
   width: 20%;
@@ -228,3 +252,20 @@ body {
   vertical-align: top;
 
 }
+
+.InfoTable {
+  position: absolute;
+  /* width: 100%; */
+  left: 0%;
+  right: 0%;
+  top: -1.5%;
+  bottom: 95%;
+  background-color: rgba(228, 68, 121, 0.6);
+  border: 1px solid #777;
+}
+
+/* .InfoTable tbody {
+  text-align: center;
+  align-content: center;
+} */
+

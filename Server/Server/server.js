@@ -97,7 +97,7 @@ class NotesServer {
         Handlers.getAllAuthorsHandler(this, socket);
       });
 
-      socket.on("GetAllNotesFromAuthorWithText", (author, field, text) => {
+      socket.on("S", (author, field, text) => { //GetAllNotesFromAuthorWithText
         Handlers.getAllNotesFromAuthorWithTextHandler(
           this,
           socket,

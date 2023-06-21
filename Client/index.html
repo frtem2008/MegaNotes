@@ -3,13 +3,14 @@
 <head>
   <title>Notes</title>
   <link rel="stylesheet" href="./styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 </head>
 
 <body>
   <script type="module" src="./dist/bundle.js"></script>
-
+  
 <!-- My -->
-  <table>
+  <table class="Left">
     <tr>
       <td>
         <h1 class="Text">Echo:</h1>
@@ -73,17 +74,22 @@
         <table class="TestTable" id="TestTable">
           <tr>
             <td>
-              <input id="TestInputTitle" placeholder="Command" />
+              <input id="TestInputTitle" placeholder="Command" value="S" />
             </td>
           </tr>
           <tr>
             <td>
-              <input id="TestInputMessage1" placeholder="Author for search..." />
+              <input id="TestInputMessage1" placeholder="Author for search..." value="alice"/>
             </td>
           </tr>
           <tr>
             <td>
-              <input id="TestInputMessage2" placeholder="Title/Text  for search..." />
+              <input id="TestInputMessage2" placeholder="Title for search..."  value="title"/>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input id="TestInputMessage3" placeholder="Text for search..." value="b"/>
             </td>
           </tr>
           <tr>
@@ -107,7 +113,7 @@
     <tr>
       <td>
         <!-- Add a new note button -->
-        <button id="NewNoteButton" class="NewNoteButton">Add a new Note</button>
+        <button id="NewNoteButton" class="NewNoteButton" >Add a new Note</button>
         <!-- <button id="NewNoteNot" class="addnot">-</button> -->
       </td>
       <td>
@@ -125,13 +131,21 @@
   <table class="SaO">
     <tr>
       <td>
-        <!-- Show all notes table (author + button) -->
+        <!-- Show all notes table (empty) -->
         <table id="AllNotesTable" class="AllNotesTable" style="display: none"></table>
       </td>
       <td>
-        <!-- Show all authors table (button) -->
+        <!-- Show all authors table (empty) -->
         <table
           id="AllAuthorsTable"
+          class="AllAuthorsTable"
+          style="display: none"
+        ></table>
+      </td>
+      <td>
+        <!-- Search table (empty) -->
+        <table
+          id="SearchTable"
           class="AllAuthorsTable"
           style="display: none"
         ></table>

@@ -62,6 +62,8 @@ class NoteService {
       console.log(
         `Found ${res.length} notes from ${author} with field ${field} with data ${text}`
       );
+      // console.log(`I am here can you here me??? ${res.length}`);
+
       const notes = res.map((dbNote) => ({
         author: dbNote.author,
         title: dbNote.title,

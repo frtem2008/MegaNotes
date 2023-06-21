@@ -5,11 +5,15 @@
       "name": "Launch Program",
       "program": "${workspaceFolder}/Server/main.js",
       "request": "launch",
-      "skipFiles": ["<node_internals>/**"],
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
       "type": "node",
       "console": "integratedTerminal",
       "cwd": "${workspaceFolder}/Client",
-      "runtimeArgs": ["--preserve-symlinks"]
+      "runtimeArgs": [
+        "--preserve-symlinks"
+      ]
     }
   ]
 }

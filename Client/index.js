@@ -15,6 +15,7 @@ async function main() {
 
     socket.on("EchoToClient", function (msg) {
       console.log("Received echo: " + msg);
+      Error("Received echo: " + msg);
     });
 
     socket.on("AllNotes", function (noteList) {
@@ -23,10 +24,12 @@ async function main() {
         console.log(noteList);
         return;
       }
+      handlerAll("AllNotesTable");
       console.log("Read notes from: " + noteList[0].author);
       //);
       // console.log(noteList);
       let table = document.getElementById("AllNotesTable");
+      table.style.display = "block";
       let tr = table.insertRow(0);
       let td0 = tr.insertCell(0);
       let child0 = document.createElement("th");
@@ -70,7 +73,6 @@ async function main() {
         td2.appendChild(child2);
         i++;
       }
-
       // TODO:
       ////New
       // const NewTable = document.createElement("table");
@@ -86,6 +88,7 @@ async function main() {
     });
 
     socket.on("AllAuthors", (authors) => {
+      handlerAll("AllAuthorsTable");
       console.log("Start writing all authors! ");
       for (let a of authors) {
         console.log(a);
@@ -107,6 +110,41 @@ async function main() {
         td1.appendChild(child1);
       }
     });
+
+    socket.on("Search", (result) => {
+      handlerAll("SearchTable");
+      console.log("Search started!");
+
+      let table = document.getElementById("SearchTable");
+      table.style.display = "block";
+
+      if (result.length === 0) {
+        Error("We can find nothing...(", "Info");
+        // let tr = table.insertRow(0);
+        // let td0 = tr.insertCell(0);
+        // let child0 = document.createElement("textarea");
+        // child0.innerHTML = `We can find nothing...`;
+        // td0.appendChild(child0);          
+        console.log("We can find nothing...");
+        return;
+      } 
+      for (let note of result) {
+        const tri = table.insertRow(0);
+        var td1 = tri.insertCell(0);
+        let child1 = document.createElement("p");
+        child1.innerHTML = `${note.title}`;
+        td1.appendChild(child1);
+
+        var td2 = tri.insertCell(1);
+        let child2 = document.createElement("p");
+        child2.innerHTML = `${note.text}`;
+        td2.appendChild(child2);
+      }
+      // setTimeout(() => {
+      //   // handlerAll("SearchTable");
+      // }, 5000);
+    });
+
 
     setTimeout(() => {
       if (document.getElementById("ShowNoteAuthorInput").value === "")
@@ -139,12 +177,6 @@ async function main() {
     }
   };
 
-  document.getElementById("NoteTitleInput").onkeyup = (ev) => {
-    if (ev.code === "Enter") {
-      document.getElementById("NoteTextInput").focus();
-    }
-  };
-
   document.getElementById("TestInputTitle").onkeyup = (ev) => {
     if (ev.code === "Enter") {
       document.getElementById("TestInputMessage1").focus();
@@ -159,6 +191,12 @@ async function main() {
 
   document.getElementById("TestInputMessage2").onkeyup = (ev) => {
     if (ev.code === "Enter") {
+      document.getElementById("TestInputMessage3").focus();
+    }
+  };
+
+  document.getElementById("TestInputMessage3").onkeyup = (ev) => {
+    if (ev.code === "Enter") {
       document.getElementById("SendTestInputButton").focus();
     }
   };
@@ -172,7 +210,6 @@ async function main() {
 
   document.getElementById("ShowNoteAuthorInput").onkeyup = (ev) => {
     if (ev.code === "Enter") {
-      handlerAll("AllNotesTable");
       ShowNotes("ShowNoteAuthorInput");
     }
   };
@@ -187,18 +224,39 @@ function Add() {
   }
 }
 
-function Error(text) {
-  // TODO:
-  // var NewText = document.createElement("table");
+function Error(text, Class) {
+  // TODO: table
+  var Info = document.createElement("table");
+  Info.id = "infotable01";
+  Info.className = "InfoTable";
+  // document.getElementById("TestTable").style.display = "none";
+  Info.style.display = "block";
+  var tr = Info.insertRow(0);
+  var td = tr.insertCell(0);
+  // td.innerHTML = text;
+  // td.class = 
+  // const NewTable = document.createElement("table");
+  // tr = NewTable.insertRow(0);
+  // td0 = tr.insertCell(0);
+  // child0 = document.createElement("p");
+  // child0.innerHTML = `Author:`;
+  // td0.appendChild(child0);
+  // td01 = tr.insertCell(1);
+  // child01 = document.createElement("p");
+  // child01.innerHTML = `${noteList[0].author}`;
+  // td01.appendChild(child01);
   const NewText = document.createElement("p");
   NewText.id = "element01";
-  NewText.className = "Error";
+  NewText.className = Class;
   NewText.innerHTML = text;
-  document.body.append(NewText);
+  // document.body.append(NewText);
+
+  td.appendChild(NewText);
+  document.body.append(Info);
   setTimeout(() => {
-    // document.getElementById("element01").style.display = "none";
     document.getElementById("element01").remove();
-  }, 1000);
+    document.getElementById("infotable01").remove();
+    }, 1000);
 }
 
 function Send() {
@@ -206,13 +264,13 @@ function Send() {
   const noteTitle = document.getElementById("NoteTitleInput");
   const noteText = document.getElementById("NoteTextInput");
   if (noteAuthor.value === "") {
-    Error("Empty author!");
+    Error("Empty author!", "Error");
     noteAuthor.focus();
   } else if (noteTitle.value === "") {
-    Error("Empty title!");
+    Error("Empty title!", "Error");
     noteTitle.focus();
   } else if (noteText.value === "") {
-    Error("Empty text!");
+    Error("Empty text!", "Error");
     noteText.focus();
   } else {
     const NewNote = {
@@ -220,7 +278,6 @@ function Send() {
       title: noteTitle.value,
       text: noteText.value,
     };
-    handlerAll("AllNotesTable");
     ShowNotes("NoteAuthorInput");
     noteAuthor.value = "";
     noteTitle.value = "";
@@ -268,7 +325,6 @@ function addEventListeners() {
 
   const ShowAllNotes = document.getElementById("ShowAllNotesButton");
   ShowAllNotes.addEventListener("click", (event) => {
-    handlerAll("AllNotesTable");
     ShowNotes("ShowNoteAuthorInput");
     // handlerAll("AllNotesTable");
   });
@@ -277,10 +333,9 @@ function addEventListeners() {
   HideAllNotes.addEventListener("click", (event) => {
     handlerAll("AllNotesTable");
   });
-  /////////////////////+=================================================================================
+ 
   const ShowAllAuthors = document.getElementById("ShowAllAuthorsButton");
   ShowAllAuthors.addEventListener("click", (event) => {
-    handlerAll("AllAuthorsTable");
     ShowAuthors();
     // handlerAll("AllNotesTable");
   });
@@ -298,7 +353,8 @@ function addEventListeners() {
       socket.emit(
         document.getElementById("TestInputTitle").value,
         document.getElementById("TestInputMessage1").value,
-        document.getElementById("TestInputMessage2").value
+        document.getElementById("TestInputMessage2").value,
+        document.getElementById("TestInputMessage3").value,
       );
     });
 

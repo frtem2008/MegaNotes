@@ -44,12 +44,16 @@ class ServerHandlers {
   ) {
     console.log("Getting all notes from " + author + " with text: " + text);
     server.noteService.getAllNotesFromAuthorWithText(author, field, text);
+    // client.emit("Search", author, field, text);
     serverEmitter.once(
       "Notes of: " + author + " with text: " + text + " ready",
       (res) => {
         console.log("res here!");
-        res.forEach((elem) => console.log(elem));
-        client.emit("AllNotesFrom" + author + "WithText" + text, res);
+        res.forEach((elem) => {
+          console.log(elem);
+        });
+        // client.emit("Search", res.author);
+        client.emit("Search", res);  // + author + "WithText" + text
       }
     );
   }
